@@ -9,7 +9,8 @@ const nunjucks = require('nunjucks'),
       socketIO = require('socket.io');
 
 //server file import
-const twitterAuth = require('./twitter.json');
+const twitterAuth = require('./twitter.json'),
+      twitterStream = require('./server/twitter_stream.js');
 
 //server setup
 const express = require('express'),
@@ -17,9 +18,6 @@ const express = require('express'),
       server = http.createServer(app),
       port = 3000,
       io = socketIO.listen(server);
-
-//Set twitter stream
-const twitter = new Twitter(twitterAuth);
 
 //Set app features
 app.set('port', process.env.PORT || port); //set port
@@ -37,7 +35,7 @@ nunjucks.configure('views', {
 app.use(bodyParser()); //parse the data comign in
 
 //set static folder
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Route handling
 //live streaming route
@@ -62,6 +60,9 @@ app.use(function(req,res,next){
             message:'Something has gone wrong with the server!'//message to send through
       });
 });
+
+//Start the twitter stream
+twitterStream.startTwitterStream('cats');
 
 //Prepare the server for listening
 server.listen(app.get('port'), function(){

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'universe';
+  src: url("../fonts/2943AD_0_0.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/2943AD_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/2943AD_0_0.woff") format("woff"), url("../fonts/2943AD_0_0.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'universe';
+  src: url("../fonts/2943AD_1_0.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/2943AD_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/2943AD_1_0.woff") format("woff"), url("../fonts/2943AD_1_0.ttf") format("truetype");
+  font-weight: bold;
+}
+canvas {
+  position: absolute;
+}
+
+.container {
+  position: relative;
+  width: 1366px;
+  margin: 0 auto;
+}
