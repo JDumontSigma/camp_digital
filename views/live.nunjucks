@@ -9,9 +9,24 @@
 <body>
     <section class="container">
          <!--First check to see if the browser supports canvas -->
+         <!-- Background Colour -->
         <canvas width="1366" height="720" id="backgroundCanvas">Your browser does not support canvas!</canvas>
+        <!-- Title of the piece  -->
         <canvas width="1000" height="150" id="title"></canvas>
+        <!-- Actually tweets  -->
         <canvas width="366" height="720" id="twitterFeed"></canvas>
+        <!-- Number of tweets counter   -->
+        <canvas width="400" height="400" id="tweetCount"></canvas>
+        <!-- Number of followers counter   -->
+        <canvas width="400" height="400" id="reachCount"></canvas>
+        <!-- Last five tweeters   -->
+        <canvas width="400" height="200" id="highTweet"></canvas>
+        <!-- Last five tweeters   -->
+        <canvas width="400" height="400" id="lastFive"></canvas>
+         <!-- Progressive Chart   -->
+        <canvas width="400" height="400" id="chart"></canvas>
+         <!-- Last Update  -->
+        <canvas width="400" height="400" id="lastUpdate"></canvas>
     </section>
    
     <!--Images rendered here waiting to be drawn to canvas -->

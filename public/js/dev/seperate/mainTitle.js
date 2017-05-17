@@ -28,6 +28,6 @@ function titleDisplay(){
 myFont.load().then(function(font){//wait for the font to load in
     document.fonts.add(font);//add it to the document
     titleDisplay();//run title function
-}) 
+}); 
 
 
