@@ -1,3 +1,6 @@
+.heartImages{
+    display: none;
+}
 canvas{
     position: absolute;
 }
@@ -16,13 +19,25 @@ canvas{
 }
 #lastFive{
     top: 150px;
-    left: 820px;
+    left: 800px;
 }
 #highTweet{
     top: 40px;
-    left: 820px;
+    left: 800px;
 }
 #lastUpdate{
-    top: 510px;
-    left: 820px;
+    top: 505px;
+    left: 800px;
+}
+#heartBeat{
+    top: 130px;
+    left: 50px;
+}
+#chart{
+    top: 490px;
+    left: 30px;
+}
+#twitterFeed{
+    border: solid 2px black;
+    right: 0;
 }

@@ -10,6 +10,8 @@ require('./seperate/reachCount');
 require('./seperate/lastFive');
 require('./seperate/highTweeter');
 require('./seperate/lastUpdate');
+require('./seperate/heartBeat');
+require('./seperate/chart');
 //global variables
 
 //background

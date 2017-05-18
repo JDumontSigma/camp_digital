@@ -13,8 +13,10 @@
         <canvas width="1366" height="720" id="backgroundCanvas">Your browser does not support canvas!</canvas>
         <!-- Title of the piece  -->
         <canvas width="1000" height="150" id="title"></canvas>
+        <!-- Heart Image Rendering  -->
+        <canvas width="400" height="400" id="heartBeat"></canvas>
         <!-- Actually tweets  -->
-        <canvas width="366" height="720" id="twitterFeed"></canvas>
+        <canvas width="300" height="700" id="twitterFeed"></canvas>
         <!-- Number of tweets counter   -->
         <canvas width="400" height="400" id="tweetCount"></canvas>
         <!-- Number of followers counter   -->
@@ -24,14 +26,43 @@
         <!-- Last five tweeters   -->
         <canvas width="400" height="400" id="lastFive"></canvas>
          <!-- Progressive Chart   -->
-        <canvas width="400" height="400" id="chart"></canvas>
+        <canvas width="740" height="180" id="chart"></canvas>
          <!-- Last Update  -->
-        <canvas width="400" height="400" id="lastUpdate"></canvas>
+        <canvas width="400" height="200" id="lastUpdate"></canvas>
     </section>
    
     <!--Images rendered here waiting to be drawn to canvas -->
     <section class="heartImages">
-        
+        <img src="../img/heart-1.png" id="heart_1">
+        <img src="../img/heart-2.png" id="heart_2">
+        <img src="../img/heart-3.png" id="heart_3">
+        <img src="../img/heart-4.png" id="heart_4">
+        <img src="../img/heart-5.png" id="heart_5">
+        <img src="../img/heart-6.png" id="heart_6">
+        <img src="../img/heart-7.png" id="heart_7">
+        <img src="../img/heart-8.png" id="heart_8">
+        <img src="../img/heart-9.png" id="heart_9">
+        <img src="../img/heart-10.png" id="heart_10">
+        <img src="../img/heart-11.png" id="heart_11">
+        <img src="../img/heart-12.png" id="heart_12">
+        <img src="../img/heart-13.png" id="heart_13">
+        <img src="../img/heart-14.png" id="heart_14">
+        <img src="../img/heart-15.png" id="heart_15">
+        <img src="../img/heart-16.png" id="heart_16">
+        <img src="../img/heart-17.png" id="heart_17">
+        <img src="../img/heart-18.png" id="heart_18">
+        <img src="../img/heart-19.png" id="heart_19">
+        <img src="../img/heart-20.png" id="heart_20">
+        <img src="../img/heart-21.png" id="heart_21">
+        <img src="../img/heart-22.png" id="heart_22">
+        <img src="../img/heart-23.png" id="heart_23">
+        <img src="../img/heart-24.png" id="heart_24">
+        <img src="../img/heart-25.png" id="heart_25">
+        <img src="../img/heart-26.png" id="heart_26">
+        <img src="../img/heart-27.png" id="heart_27">
+        <img src="../img/heart-28.png" id="heart_28">
+        <img src="../img/heart-29.png" id="heart_29">
+        <img src="../img/heart-30.png" id="heart_30">
     </section>
 </body>
 <script src="/js/scripts.bundled.js"></script>
