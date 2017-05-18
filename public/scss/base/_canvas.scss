@@ -10,19 +10,19 @@ canvas{
     margin: 0 auto;
 }
 #tweetCount{
-    top: 100px;
+    top: 110px;
     left: 480px;
 }
 #reachCount{
-    top: 260px;
+    top: 270px;
     left: 480px;
 }
 #lastFive{
-    top: 150px;
+    top: 160px;
     left: 800px;
 }
 #highTweet{
-    top: 40px;
+    top: 30px;
     left: 800px;
 }
 #lastUpdate{
@@ -34,10 +34,13 @@ canvas{
     left: 50px;
 }
 #chart{
-    top: 490px;
-    left: 30px;
+    top: 480px;
+    bottom: 0px;
+    left: 0px;
 }
 #twitterFeed{
-    border: solid 2px black;
-    right: 0;
+    right: -10px;
+    position: relative;
+    float: right;
+   
 }

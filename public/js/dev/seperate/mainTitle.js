@@ -1,6 +1,5 @@
 import $ from 'jquery'; //import jquery
 
-const myFont = new FontFace('universe', 'url(fonts/2943AD_1_0.woff)');//font link
 const title = document.getElementById('title').getContext('2d'),
       titleContent = 'CAMP DIGITAL HEALTHCHECK';//get canvas
 
@@ -8,7 +7,7 @@ const title = document.getElementById('title').getContext('2d'),
 const rectangleLocations = require('./rectangle.js'),
       rectangle = rectangleLocations.rectangleLocations;//reading the object from the file
 
-function titleDisplay(){
+export default function titleDisplay(){
     title.beginPath();
         title.fillStyle = 'Black';
         title.fillRect(40,30,650,70);//draw solid black around the back
@@ -25,9 +24,4 @@ function titleDisplay(){
     //set font style, word included, colour, close path
 }
 
-myFont.load().then(function(font){//wait for the font to load in
-    document.fonts.add(font);//add it to the document
-    titleDisplay();//run title function
-}); 
-
-
+export{titleDisplay}

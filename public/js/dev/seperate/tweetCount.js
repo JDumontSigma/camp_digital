@@ -9,7 +9,7 @@ function twitterCount(){
     tweetCount.beginPath();
         tweetCount.font = "30px universe";
         tweetCount.fillStyle = 'Black';
-        tweetCount.fillText('TOTAL TWEETS', 0, 100);
+        tweetCount.fillText('Total Tweets', 0, 100);
         tweetCount.font = "bold 100px universe";
         tweetCount.fillStyle = '#379E9A';//Sigma Green
         tweetCount.fillText(`${tweetTotal}`,0,190);

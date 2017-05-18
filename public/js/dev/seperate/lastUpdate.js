@@ -10,8 +10,8 @@ function lastUpdate(){
     update.beginPath();
         update.font = '30px universe';
         update.fillStyle = 'Black';
-        update.fillText(`TWITTER ACTIVITY`, 0, 30);
-        update.fillText('UP TO', 0, 60);
+        update.fillText(`Twitter Activity`, 0, 30);
+        update.fillText('Up To', 0, 60);
         update.font = '90px universe';
         update.fillText(`${time}`, 0, 140);
         update.font = '30px universe';

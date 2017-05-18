@@ -39,6 +39,7 @@ let myChart = new Chart(chart, {
         }
       }],
       yAxes: [{
+        display: false,
         //hide the Y axix scale
         gridLines: {
             display: false

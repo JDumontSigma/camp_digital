@@ -8,10 +8,13 @@ function highestTweet(){
     //set up font variables
       highTweet.fillStyle = 'Black';
       highTweet.font = '30px universe';
-      highTweet.fillText('TWEETEST OF ALL!', 0, 30);
+      
+      highTweet.fillText('Biggest Tweeter!', 0, 85);
       highTweet.fillStyle = '#d0343a';
       highTweet.font = 'bold 30px universe';
-      highTweet.fillText(`${highestTweeter}`, 0, 80);
+      highTweet.fillText(`${highestTweeter}`, 0, 125);
+      highTweet.font = 'bold 40px universe';
+      highTweet.fillText('#campdigital', 0, 30);
     highTweet.closePath();
 }
 

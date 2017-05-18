@@ -16,17 +16,17 @@ function latestFive(){
       five.fillStyle = 'Black';
       five.font = '30px universe';
       //provide a title
-      five.fillText('LAST 5 TWEETERS', 0, 50);
+      five.fillText('Last 5 Tweeters', 0, 50);
       //loop through the 5 array elements to display them
       for(let i = 0; i < 5; i++){
         five.fillStyle = '#379E9A';
-        five.font = 'bold 30px universe';
+        five.font = '30px universe';
         //write out the text and increase the y position
         //check to see whether the varaibels are empty or not
         if(typeof tweetNames[i] === 'undefined' || tweetNames[i] === null || tweetNames[i] === ''){
             five.fillText('Awaiting Tweet...' ,0,spacing);
         }else{
-            five.fillText('@' + tweetNames[i],0,spacing);
+            five.fillText('@ ' + tweetNames[i],0,spacing);
         }
         //shit the way down to make layout appropriate
         spacing = spacing + 50;
