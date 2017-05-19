@@ -72,7 +72,21 @@ function loop(){
       }, 2000);
 }
 
-loop();
+function tenMinuteUpdate(){
+      setTimeout(function(){
+            let   date = new Date(),
+                  currentHour = date.getHours(),//get the current hours
+                  currentMin = date.getMinutes(),//get the current minutes
+                  random = (min, max) => Math.floor(Math.random() * max + min),//remove shortly 
+                  numbOfTweets = random(1, 20);
+            io.sockets.emit('ten_update', {hours : currentHour, mins : currentMin, numbOfTweets : numbOfTweets});
+            //reset appropriate info
+            numbOfTweets = 0;
+            tenMinuteUpdate();//rerrun 
+      }, 60000);//run every 1 minutes
+};
+
+tenMinuteUpdate();//initial call to start the 10 minutes
 
 //Prepare the server for listening
 server.listen(app.get('port'), function(){

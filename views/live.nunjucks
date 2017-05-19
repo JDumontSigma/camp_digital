@@ -33,6 +33,7 @@
    
     <!--Images rendered here waiting to be drawn to canvas -->
     <section class="heartImages">
+        <img src="../img/header_bg.png" width="512" height='96' alt="banner_bg" id="banner">
         <img src="../img/heart-1.png" id="heart_1">
         <img src="../img/heart-2.png" id="heart_2">
         <img src="../img/heart-3.png" id="heart_3">

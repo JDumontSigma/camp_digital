@@ -2,7 +2,7 @@ const highTweet = document.getElementById('highTweet').getContext('2d');
 
 let highestTweeter = 'Waiting...';
 
-function highestTweet(){
+export function highestTweet(){
     highTweet.clearRect(0,0,400,200);
     highTweet.beginPath();
     //set up font variables
@@ -18,7 +18,3 @@ function highestTweet(){
     highTweet.closePath();
 }
 
-thinFont.load().then(function(font){//wait for the font to load in
-    document.fonts.add(font);//add it to the document
-    highestTweet();//run lastFive function
-}); 

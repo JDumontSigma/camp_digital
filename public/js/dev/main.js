@@ -11,7 +11,7 @@ import {scale, increaseHeartRate, reduceHeartRate, checkHeartSpeed} from './sepe
 import {updateChart} from './seperate/chart.js';
 import {lastUpdate, updateTime} from './seperate/lastUpdate.js';
 import {latestFive} from './seperate/lastFive.js';
-
+import {highestTweet} from './seperate/highTweeter.js';
 
 //static renders which do not change!
 require('./seperate/backgroundCanvas');
@@ -40,6 +40,7 @@ boldFont.load()//load bold font
     reduceHeartRate();//start slowing the heart rate
     lastUpdate();//the last update time
     latestFive();//last 5 tweets
+    highestTweet();
 })); 
 
 let socket = io.connect();//start sockets
@@ -52,10 +53,12 @@ socket.on('new_tweet',function(data){//updates for every time a new tweet comes
     //rerun Appropriate Functions to update content!
     twitterCount();
     followerCount();
-    lastUpdate();
+    
 });
 
-socket.on('ten_update',function(data){//update every 10 minutes
-    updateChart(4,'9:30');//update the chart, (number of tweets, time)
-    updateTime(13,36);//update the current time(hours,minutes)
+socket.on('ten_update', function(data){//update every 10 minutes
+    console.log(data);
+    updateChart(data.numbOfTweets,'9:30');//update the chart, (number of tweets, time)
+    updateTime(data.hours, data.mins);//update the current time(hours,minutes)
+    lastUpdate();
 });

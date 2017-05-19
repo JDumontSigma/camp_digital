@@ -46,7 +46,8 @@ export function scale(){
 }
 
 export function checkHeartSpeed(){
-  if(heartSpeed === 60){
+  if(heartSpeed <= 60){
+    heartSpeed = 60;
     heartRate = 80;
   }else if(heartSpeed > 60 && heartSpeed < 80){
     heartRate = 60;
@@ -71,8 +72,8 @@ export function increaseHeartRate(){
 
 export function reduceHeartRate(){
     setTimeout(function(){
-        if(heartSpeed !== 60){
-            heartSpeed = heartSpeed - 4;
+        if(heartSpeed > 60){
+            heartSpeed = heartSpeed - 2;
         }
         reduceHeartRate();
     },5000);//5 seconds currently
