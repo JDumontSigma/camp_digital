@@ -1,27 +1,27 @@
 const update = document.getElementById('lastUpdate').getContext('2d');
 
-const thinFont = new FontFace('universe', 'url(fonts/2943AD_0_0.woff)');//font link
+let hour = 11,
+    minute = 34,
+    morning = 'AM';
 
-let time = '9:30';
-let morning = 'AM';
-
-function lastUpdate(){
+export function lastUpdate(){
     update.clearRect(0, 0, 400, 400);
     update.beginPath();
-        update.font = '30px universe';
-        update.fillStyle = 'Black';
-        update.fillText(`Twitter Activity`, 0, 30);
-        update.fillText('Up To', 0, 60);
-        update.font = '90px universe';
-        update.fillText(`${time}`, 0, 140);
-        update.font = '30px universe';
-        update.fillText(morning, 190, 140);
+        update.font = '32px universe';
+        update.fillStyle = '#101214';
+        update.fillText(`Twitter Activity to`, 0, 30);
+        update.font = 'bold 96px universe';
+        update.fillText(`${hour}:${minute}`, 0, 120);
+        update.font = 'normal 32px universe';
+        if(hour >= 12){
+            morning = 'PM';
+        }
+        update.fillText(morning, 200, 120);
     update.closePath();
 }
 
+export function updateTime(newHour, newMinute){
+    hour = newHour;
+    minute = newMinute;
+}
 
-
-thinFont.load().then(function(font){//wait for the font to load in
-    document.fonts.add(font);//add it to the document
-    lastUpdate();//run lastFive function
-}); 

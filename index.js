@@ -64,6 +64,16 @@ app.use(function(req,res,next){
 //Start the twitter stream
 twitterStream.startTwitterStream('cats');
 
+function loop(){
+      setTimeout(function(){
+            io.sockets.emit('new_tweet',{});
+            console.log('looping');
+            loop();
+      }, 2000);
+}
+
+loop();
+
 //Prepare the server for listening
 server.listen(app.get('port'), function(){
       console.log(`Server up and running or port ${app.get('port')}`);

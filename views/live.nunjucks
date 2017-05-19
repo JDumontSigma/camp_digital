@@ -22,11 +22,11 @@
         <!-- Number of followers counter   -->
         <canvas width="400" height="400" id="reachCount"></canvas>
         <!-- Last five tweeters   -->
-        <canvas width="400" height="200" id="highTweet"></canvas>
+        <canvas width="400" height="700" id="highTweet"></canvas>
         <!-- Last five tweeters   -->
         <canvas width="400" height="400" id="lastFive"></canvas>
          <!-- Progressive Chart   -->
-        <canvas width="740" height="220" id="chart"></canvas>
+        <canvas width="720" height="190" id="chart"></canvas>
          <!-- Last Update  -->
         <canvas width="400" height="200" id="lastUpdate"></canvas>
     </section>

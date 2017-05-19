@@ -52,3 +52,9 @@ let myChart = new Chart(chart, {
     }
   }
 });
+
+export function updateChart(number, time){
+  myChart.data.datasets[0].data.push(number);
+  myChart.data.labels.push(time);
+  myChart.update();
+}

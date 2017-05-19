@@ -9,7 +9,7 @@ const rectangleLocations = require('./rectangle.js'),
 
 export default function titleDisplay(){
     title.beginPath();
-        title.fillStyle = 'Black';
+        title.fillStyle = '#101214';
         title.fillRect(40,30,650,70);//draw solid black around the back
 
         for(let rect in rectangle){//loop through each object of the file
