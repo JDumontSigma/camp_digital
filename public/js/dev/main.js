@@ -46,18 +46,21 @@ boldFont.load()//load bold font
 let socket = io.connect();//start sockets
 
 socket.on('new_tweet',function(data){//updates for every time a new tweet comes
+    highestTweet(data.biggestTweet);
     addOne();//increase tweet count
-    updateReach(200); //ipdate reach/follower count
+    updateReach(data.totalReach); //ipdate reach/follower count
     increaseHeartRate(); //increase heardbeat number
     checkHeartSpeed();//Change the speed of the heart
     //rerun Appropriate Functions to update content!
     twitterCount();
     followerCount();
+    latestFive(data.lastFive);
+    twitterUpdate(data.tweetInfo);
     
 });
 
 socket.on('ten_update', function(data){//update every 10 minutes
-    console.log(data);
+    console.log(data.numbOfTweets);
     updateChart(data.numbOfTweets,'9:30');//update the chart, (number of tweets, time)
     updateTime(data.hours, data.mins);//update the current time(hours,minutes)
     lastUpdate();

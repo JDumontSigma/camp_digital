@@ -1,8 +1,9 @@
 const five = document.getElementById('lastFive').getContext('2d');
 
-let tweetNames = ['bdabdaddajsdb'];
+let tweetNames = [''];
 
-export function latestFive(){
+export function latestFive(lastFive){
+  tweetNames = lastFive;
   //layout position variable
   let spacing = 100;
   //save canvas context

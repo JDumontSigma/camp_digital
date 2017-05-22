@@ -3,8 +3,8 @@ import Chart from 'chart.js';
 var chart = document.getElementById('chart').getContext('2d');
 //Define the variable for the chart settings
 
-var allData = [9,20,3,4,5];
-var labels = ['Red', 'Blue', 'Yellow', 'Green', 'Orange'];
+var allData = [];
+var labels = [];
 
 var data = {
   //set the labels and how many points there are currently
