@@ -62,7 +62,7 @@ export function checkHeartSpeed(){
   }else if(heartRate > 160 && heartSpeed < 180){
     heartRate = 5;
   }else if(heartRate > 180){
-    heartRate = 1;
+    heartRate = 0.5;
   }
 }
 

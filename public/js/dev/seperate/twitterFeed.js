@@ -1,38 +1,6 @@
 const twitter = document.getElementById('twitterFeed').getContext('2d');
 
-let tweets = {
-    '15':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#15XJhb17 The End. Thank you to all the attendees, sponsors and speakers for attending.'
-    },
-    '16':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#16XJhb17 The End. Thank you to all the attendees.'
-    },
-    '17':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#17XJhb17 The End. Thank you to all the attendees, sponsors and speakers for attending.'
-    },
-    '18':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#81XJhb17 The End. Thank you to all the attendees, sponsors and speakers for attending.'
-    },
-    '19':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#2XJhb17 The End. Thank you to all the attendees, sponsors and speakers for attending. Next stop @CapeTown #UX #Campdigital #wearesigma #fun'
-    },
-    '20':{
-        'name' : 'Jason Dumont',
-        'twitterHandle' : '@Dumont95c',
-        'tweet' : '#3XJhb17 The End. Thank you to all the attendees, sponsors and speakers for attending. Next stop @CapeTown #UX #Campdigital #wearesigma #fun'
-    }
-};
-
+let tweets = {};
 
 let yPos = 30;
 
@@ -68,11 +36,8 @@ function twitterUpdate(tweetData){
                     twitter.fillText(display[x], 20, yPos);
                     yPos = yPos + seperater;
                 }
-            }
-            
-            
+            } 
         }
-       
     }
 }
 

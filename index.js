@@ -7,7 +7,8 @@ const nunjucks = require('nunjucks'),
       http = require('http'),
       Twitter = require('ntwitter'),
       socketIO = require('socket.io'),
-      _ = require('lodash');
+      _ = require('lodash'),
+      jsonfile = require('jsonfile');
 
 //server file import
 const twitterAuth = require('./twitter.json'),
@@ -44,11 +45,6 @@ app.get('/', function(req,res){
       res.render('live',{title:'Live Version'});
 });
 
-//timelapse route
-app.get('/timelapse', function(req,res){
-      res.render('timelapse',{title:'Timelapse'});
-});
-
 //error handling 
 app.use(function(req,res,next){
       res.status(404).render('error',{
@@ -65,10 +61,6 @@ app.use(function(req,res,next){
 //Start the twitter stream
 twitterStream.startTwitterStream('cats');
 
-function newTweet(){
-
-}
-
 function tenMinuteUpdate(){
       setTimeout(function(){
             let   date = new Date(),
@@ -78,6 +70,15 @@ function tenMinuteUpdate(){
                         currentMin = '0' + currentMin;
                   }
             io.sockets.emit('ten_update', {hours : currentHour, mins : currentMin, numbOfTweets : tenMinTweetCount});
+            let file = './public/storage/tweetData.json';//location for internal storage
+            jsonfile.writeFile(file, tweetInfo, {spaces : 2}, function(err){ //write to the file with spacing set
+                  if(err !== null){//if there is an error
+                        console.log(err);
+                  }else{
+                        console.log('Storage Updated'); //else inform the data has been updated
+                  }
+                  
+            });
             //reset appropriate info
             tenMinTweetCount = 0;
             tenMinuteUpdate();//rerrun 
@@ -164,11 +165,7 @@ function updateStats(id, newName, newScreenName, tweetText, followerCount){
                   'lastFive' : lastFiveTweets,//last 5 tweet names
                   'biggestTweet' : biggestTwitter//biggest twitter name
             });
-
-
-
-      }
-      
+      }    
 }
 
 

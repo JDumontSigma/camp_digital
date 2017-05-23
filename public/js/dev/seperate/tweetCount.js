@@ -14,8 +14,8 @@ export function twitterCount(){
     tweetCount.closePath();
 }
 
-export function addOne(){//update the count by 1
-    tweetTotal++;
+export function addOne(tweetCount){//update the count by 1
+    tweetTotal = tweetCount
 }
 
 

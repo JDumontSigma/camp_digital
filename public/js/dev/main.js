@@ -16,9 +16,6 @@ import {highestTweet} from './seperate/highTweeter.js';
 //static renders which do not change!
 require('./seperate/backgroundCanvas');
 
-require('./seperate/reachCount');
-require('./seperate/highTweeter');
-
 //global variables
 
 //background
@@ -33,7 +30,6 @@ boldFont.load()//load bold font
     document.fonts.add(font);//add it to the document
     //run initial draw functions
     titleDisplay();//display title
-    twitterUpdate();//display twitter feed
     twitterCount();//display number of tweets
     followerCount();//display number of followers
     scale();//draw the heart
@@ -47,7 +43,7 @@ let socket = io.connect();//start sockets
 
 socket.on('new_tweet',function(data){//updates for every time a new tweet comes
     highestTweet(data.biggestTweet);
-    addOne();//increase tweet count
+    addOne(data.totalTweets);//increase tweet count
     updateReach(data.totalReach); //ipdate reach/follower count
     increaseHeartRate(); //increase heardbeat number
     checkHeartSpeed();//Change the speed of the heart
@@ -56,12 +52,11 @@ socket.on('new_tweet',function(data){//updates for every time a new tweet comes
     followerCount();
     latestFive(data.lastFive);
     twitterUpdate(data.tweetInfo);
-    
 });
 
 socket.on('ten_update', function(data){//update every 10 minutes
     console.log(data.numbOfTweets);
-    updateChart(data.numbOfTweets,'9:30');//update the chart, (number of tweets, time)
+    updateChart(data.numbOfTweets,`${data.hours}:${data.mins}`);//update the chart, (number of tweets, time)
     updateTime(data.hours, data.mins);//update the current time(hours,minutes)
     lastUpdate();
 });
