@@ -10,27 +10,27 @@
     <section class="container">
          <!--First check to see if the browser supports canvas -->
          <!-- Background Colour -->
-        <canvas width="1366" height="720" id="backgroundCanvas">Your browser does not support canvas!</canvas>
+        <canvas width="1920" height="1080" id="backgroundCanvas">Your browser does not support canvas!</canvas>
         <!-- Title of the piece  -->
         <canvas width="1000" height="150" id="title"></canvas>
         <!-- Heart Image Rendering  -->
-        <canvas width="400" height="400" id="heartBeat"></canvas>
+        <canvas width="500" height="500" id="heartBeat"></canvas>
         <!-- Actually tweets  -->
-        <canvas width="300" height="700" id="twitterFeed"></canvas>
+        <canvas width="450" height="1080" id="twitterFeed"></canvas>
         <!-- Number of tweets counter   -->
         <canvas width="400" height="400" id="tweetCount"></canvas>
         <!-- Number of followers counter   -->
-        <canvas width="400" height="400" id="reachCount"></canvas>
+        <canvas width="500" height="400" id="reachCount"></canvas>
         <!-- Last five tweeters   -->
-        <canvas width="400" height="700" id="highTweet"></canvas>
+        <canvas width="600" height="700" id="highTweet"></canvas>
         <!-- Last five tweeters   -->
         <canvas width="400" height="400" id="lastFive"></canvas>
          <!-- Progressive Chart   -->
-        <canvas width="720" height="190" id="chart"></canvas>
+        <canvas width="1056" height="280" id="chart"></canvas>
          <!-- Last Update  -->
         <canvas width="400" height="200" id="lastUpdate"></canvas>
     </section>
-   
+    <section class="fullScreen">Go Full Screen!</section>
     <!--Images rendered here waiting to be drawn to canvas -->
     <section class="heartImages">
         <img src="../img/header_bg.png" width="512" height='96' alt="banner_bg" id="banner">
@@ -59,11 +59,6 @@
         <img src="../img/heart-23.png" id="heart_23">
         <img src="../img/heart-24.png" id="heart_24">
         <img src="../img/heart-25.png" id="heart_25">
-        <img src="../img/heart-26.png" id="heart_26">
-        <img src="../img/heart-27.png" id="heart_27">
-        <img src="../img/heart-28.png" id="heart_28">
-        <img src="../img/heart-29.png" id="heart_29">
-        <img src="../img/heart-30.png" id="heart_30">
     </section>
 </body>
 <script src="/js/scripts.bundled.js"></script>

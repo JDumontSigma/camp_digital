@@ -22527,7 +22527,7 @@ var backgroundCanvas = document.getElementById('backgroundCanvas').getContext('2
 
 function background() {
     backgroundCanvas.fillStyle = "White"; //light grey
-    backgroundCanvas.fillRect(0, 0, 1366, 700);
+    backgroundCanvas.fillRect(0, 0, 1920, 1080);
 }
 background();
 
@@ -22624,13 +22624,13 @@ exports.checkHeartSpeed = checkHeartSpeed;
 exports.increaseHeartRate = increaseHeartRate;
 exports.reduceHeartRate = reduceHeartRate;
 var heart = document.getElementById('heartBeat').getContext('2d'),
-    imgLength = 30;
+    imgLength = 25;
 
 var position = 1,
     scaleDirection = 'up',
     heartSpeed = 80,
-    heartRate = 20,
-    xPos = 170,
+    heartRate = 60,
+    xPos = 230,
     fontSize = 80;
 
 function scale() {
@@ -22638,28 +22638,28 @@ function scale() {
         currentImg = document.getElementById(img);
 
     if (heartSpeed > 100) {
-        xPos = 177;
+        xPos = 228;
     } else {
-        xPos = 179;
+        xPos = 230;
     }
 
-    heart.clearRect(0, 0, 400, 400); //clear the canvas
+    heart.clearRect(0, 0, 500, 500); //clear the canvas
     heart.drawImage(currentImg, 0, 0); //draw the image
     heart.font = 'bold ' + fontSize + 'px universe';
     heart.textAlign = 'center';
     heart.fillStyle = 'White';
-    heart.fillText('' + heartSpeed, xPos, 193); // draw the heart rate
+    heart.fillText('' + heartSpeed, xPos, 230); // draw the heart rate
 
     //change the scale direction
     if (scaleDirection === 'up') {
         position++;
-        fontSize++;
+        //fontSize++;
         if (position === imgLength) {
             scaleDirection = 'down';
         }
     } else {
         position--;
-        fontSize--;
+        //fontSize--;
         if (position === 1) {
             scaleDirection = 'up';
         }
@@ -22673,9 +22673,9 @@ function scale() {
 function checkHeartSpeed() {
     if (heartSpeed <= 60) {
         heartSpeed = 60;
-        heartRate = 80;
-    } else if (heartSpeed > 60 && heartSpeed < 80) {
         heartRate = 60;
+    } else if (heartSpeed > 60 && heartSpeed < 80) {
+        heartRate = 50;
     } else if (heartSpeed > 80 && heartSpeed < 100) {
         heartRate = 40;
     } else if (heartSpeed > 100 && heartSpeed < 120) {
@@ -22687,7 +22687,7 @@ function checkHeartSpeed() {
     } else if (heartRate > 160 && heartSpeed < 180) {
         heartRate = 5;
     } else if (heartRate > 180) {
-        heartRate = 0.5;
+        heartRate = 1;
     }
 }
 
@@ -22701,7 +22701,7 @@ function reduceHeartRate() {
             heartSpeed = heartSpeed - 2;
         }
         reduceHeartRate();
-    }, 5000); //5 seconds currently
+    }, 600000); //5 seconds currently
 }
 
 /***/ }),
@@ -22725,18 +22725,19 @@ function highestTweet(hiTweet) {
     highestTweeter = '@' + hiTweet;
   }
 
-  highTweet.clearRect(0, 0, 400, 700);
+  highTweet.clearRect(0, 0, 600, 700);
   highTweet.beginPath();
   //set up font variables
   highTweet.fillStyle = '#101214';
   highTweet.font = 'bold 32px universe';
-
-  highTweet.fillText('Biggest Tweeter!', 0, 440);
+  highTweet.textAlign = 'left';
+  highTweet.fillText('Biggest Tweeter!', 275, 520);
   highTweet.fillStyle = '#d0343a';
-  highTweet.font = 'bold 30px universe';
-  highTweet.fillText('' + highestTweeter, 0, 485);
-  highTweet.font = 'bold 50px universe';
-  highTweet.fillText('#campdigital', 0, 50);
+  highTweet.font = 'bold 40px universe';
+  highTweet.fillText('' + highestTweeter, 275, 570);
+  highTweet.font = 'bold 60px universe';
+  highTweet.textAlign = 'center';
+  highTweet.fillText('#campdigital', 200, 50);
   highTweet.closePath();
 }
 
@@ -22758,7 +22759,10 @@ var five = document.getElementById('lastFive').getContext('2d');
 var tweetNames = [''];
 
 function latestFive(lastFive) {
-  tweetNames = lastFive;
+  if (typeof lastFive !== 'undefined') {
+    tweetNames = lastFive;
+  }
+
   //layout position variable
   var spacing = 100;
   //save canvas context
@@ -22813,7 +22817,7 @@ function lastUpdate() {
     update.font = '32px universe';
     update.fillStyle = '#101214';
     update.fillText('Twitter Activity to', 0, 30);
-    update.font = 'bold 96px universe';
+    update.font = 'normal 96px universe';
     update.fillText(hour + ':' + minute, 0, 120);
     update.font = 'normal 32px universe';
     if (hour >= 12) {
@@ -22841,7 +22845,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = titleDisplay;
 
 var title = document.getElementById('title').getContext('2d'),
-    titleContent = 'CAMP DIGITAL HEALTHCHECK'; //get canvas
+    titleContent = 'CAMP DIGITAL HEARTBEAT'; //get canvas
 
 //importing rectangle image
 var bg = document.getElementById('banner');
@@ -22875,14 +22879,14 @@ var reachCount = document.getElementById('reachCount').getContext('2d');
 var reachTotal = exports.reachTotal = 0;
 
 function followerCount() {
-    reachCount.clearRect(0, 0, 400, 400);
+    reachCount.clearRect(0, 0, 500, 400);
     reachCount.beginPath();
-    reachCount.font = "bold 30px universe";
+    reachCount.font = "bold 32px universe";
     reachCount.fillStyle = '#101214';
     reachCount.fillText('Total Reach', 0, 100);
-    reachCount.font = "bold 100px universe";
+    reachCount.font = "bold 128px universe";
     reachCount.fillStyle = '#379E9A'; //Sigma Green
-    reachCount.fillText('' + reachTotal.toLocaleString(), 0, 190);
+    reachCount.fillText('' + reachTotal.toLocaleString(), 0, 220);
     reachCount.closePath();
 }
 
@@ -22909,12 +22913,12 @@ var tweetTotal = exports.tweetTotal = 0;
 function twitterCount() {
     tweetCount.clearRect(0, 0, 400, 400);
     tweetCount.beginPath();
-    tweetCount.font = "bold 30px universe";
+    tweetCount.font = "bold 32px universe";
     tweetCount.fillStyle = '#101214';
     tweetCount.fillText('Total Tweets', 0, 100);
-    tweetCount.font = "bold 100px universe";
+    tweetCount.font = "bold 128px universe";
     tweetCount.fillStyle = '#379E9A'; //Sigma Green
-    tweetCount.fillText('' + tweetTotal, 0, 190);
+    tweetCount.fillText('' + tweetTotal, 0, 220);
     tweetCount.closePath();
 }
 
@@ -22940,13 +22944,13 @@ var tweets = {};
 var yPos = 30;
 
 function twitterUpdate(tweetData) {
-    twitter.clearRect(0, 0, 300, 700);
+    twitter.clearRect(0, 0, 450, 1080);
     tweets = tweetData;
 
     if (typeof tweets === 'undefined') {
         twitter.font = 'bold 20px universe';
         twitter.textAlign = 'center';
-        twitter.fillText('Currently no tweets', 150, 40);
+        twitter.fillText('Currently no tweets', 225, 40);
     } else {
         yPos = 30;
         for (var tweet in tweets) {
@@ -22957,13 +22961,13 @@ function twitterUpdate(tweetData) {
             yPos = yPos + 40;
             var seperater = 20;
             twitter.font = 'bold 18px universe';
-            twitter.fillText('@' + tweets[tweet].tweetName, 15, yPos);
+            twitter.fillText('@' + tweets[tweet].screenName, 15, yPos);
             twitter.fillStyle = 'Black';
-            twitter.fillText(tweets[tweet].screenName, 160, yPos);
+            twitter.fillText(tweets[tweet].tweetName, 210, yPos);
             yPos = yPos + 30;
             twitter.font = 'normal 15px universe';
             if (typeof tweets[tweet].tweetText === 'undefined') {} else {
-                var display = splitter(tweets[tweet].tweetText, 46);
+                var display = splitter(tweets[tweet].tweetText, 50);
                 for (var x = 0; x < display.length; x++) {
                     twitter.fillStyle = 'Black';
                     twitter.fillText(display[x], 20, yPos);
@@ -33520,41 +33524,58 @@ var thinFont = new FontFace('universe', 'url(fonts/2943AD_0_0.woff)'); //font li
 boldFont.load() //load bold font
 .then(thinFont.load() //load thin font
 .then(function (font) {
-    document.fonts.add(font); //add it to the document
-    //run initial draw functions
-    (0, _mainTitle.titleDisplay)(); //display title
-    (0, _tweetCount.twitterCount)(); //display number of tweets
-    (0, _reachCount.followerCount)(); //display number of followers
-    (0, _heartBeat.scale)(); //draw the heart
-    (0, _heartBeat.reduceHeartRate)(); //start slowing the heart rate
-    (0, _lastUpdate.lastUpdate)(); //the last update time
-    (0, _lastFive.latestFive)(); //last 5 tweets
-    (0, _highTweeter.highestTweet)();
+  document.fonts.add(font); //add it to the document
+  //run initial draw functions
+  (0, _mainTitle.titleDisplay)(); //display title
+  (0, _tweetCount.twitterCount)(); //display number of tweets
+  (0, _reachCount.followerCount)(); //display number of followers
+  (0, _heartBeat.scale)(); //draw the heart
+  (0, _heartBeat.reduceHeartRate)(); //start slowing the heart rate
+  (0, _lastUpdate.lastUpdate)(); //the last update time
+  (0, _lastFive.latestFive)(); //last 5 tweets
+  (0, _highTweeter.highestTweet)();
 }));
 
 var socket = _socket2.default.connect(); //start sockets
 
 socket.on('new_tweet', function (data) {
-    //updates for every time a new tweet comes
-    (0, _highTweeter.highestTweet)(data.biggestTweet);
-    (0, _tweetCount.addOne)(data.totalTweets); //increase tweet count
-    (0, _reachCount.updateReach)(data.totalReach); //ipdate reach/follower count
-    (0, _heartBeat.increaseHeartRate)(); //increase heardbeat number
-    (0, _heartBeat.checkHeartSpeed)(); //Change the speed of the heart
-    //rerun Appropriate Functions to update content!
-    (0, _tweetCount.twitterCount)();
-    (0, _reachCount.followerCount)();
-    (0, _lastFive.latestFive)(data.lastFive);
-    (0, _twitterFeed.twitterUpdate)(data.tweetInfo);
+  //updates for every time a new tweet comes
+  (0, _highTweeter.highestTweet)(data.biggestTweet);
+  (0, _tweetCount.addOne)(data.totalTweets); //increase tweet count
+  (0, _reachCount.updateReach)(data.totalReach); //ipdate reach/follower count
+  (0, _heartBeat.increaseHeartRate)(); //increase heardbeat number
+  (0, _heartBeat.checkHeartSpeed)(); //Change the speed of the heart
+  //rerun Appropriate Functions to update content!
+  (0, _tweetCount.twitterCount)();
+  (0, _reachCount.followerCount)();
+  (0, _lastFive.latestFive)(data.lastFive);
+  (0, _twitterFeed.twitterUpdate)(data.tweetInfo);
 });
 
 socket.on('ten_update', function (data) {
-    //update every 10 minutes
-    console.log(data.numbOfTweets);
-    (0, _chart.updateChart)(data.numbOfTweets, data.hours + ':' + data.mins); //update the chart, (number of tweets, time)
-    (0, _lastUpdate.updateTime)(data.hours, data.mins); //update the current time(hours,minutes)
-    (0, _lastUpdate.lastUpdate)();
+  //update every 10 minutes
+  console.log(data.numbOfTweets);
+  (0, _chart.updateChart)(data.numbOfTweets, data.hours + ':' + data.mins); //update the chart, (number of tweets, time)
+  (0, _lastUpdate.updateTime)(data.hours, data.mins); //update the current time(hours,minutes)
+  (0, _lastUpdate.lastUpdate)();
 });
+
+(0, _jquery2.default)('.fullScreen').on('click', function () {
+  launchIntoFullscreen(document.documentElement);
+  (0, _jquery2.default)('.fullScreen').hide();
+});
+
+function launchIntoFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
 
 /***/ }),
 /* 269 */

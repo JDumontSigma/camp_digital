@@ -1,6 +1,6 @@
 
 const title = document.getElementById('title').getContext('2d'),
-      titleContent = 'CAMP DIGITAL HEALTHCHECK';//get canvas
+      titleContent = 'CAMP DIGITAL HEARTBEAT';//get canvas
 
 //importing rectangle image
 const bg = document.getElementById('banner');

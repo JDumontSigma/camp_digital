@@ -14,7 +14,7 @@ module.exports = {
         twitter.stream('statuses/filter', {track: keyword}, function (stream) {
             stream.on('data', function (data) {
                 let tweetText = data.text,
-                    name = data.user.screen_name,
+                    name = data.user.name,
                     screenName = data.user.screen_name,
                     followerCount = data.user.followers_count,
                     tweetId = data.id;

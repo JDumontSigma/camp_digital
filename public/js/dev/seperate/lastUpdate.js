@@ -10,7 +10,7 @@ export function lastUpdate(){
         update.font = '32px universe';
         update.fillStyle = '#101214';
         update.fillText(`Twitter Activity to`, 0, 30);
-        update.font = 'bold 96px universe';
+        update.font = 'normal 96px universe';
         update.fillText(`${hour}:${minute}`, 0, 120);
         update.font = 'normal 32px universe';
         if(hour >= 12){

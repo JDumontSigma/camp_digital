@@ -16,54 +16,73 @@
   display: none;
 }
 
+body {
+  margin: 0;
+}
+
 canvas {
   position: absolute;
 }
 
 .container {
   position: relative;
-  width: 1366px;
+  width: 1920px;
+  height: 1080px;
   margin: 0 auto;
+  background-color: grey;
+}
+
+#title {
+  top: 20px;
+  left: 20px;
 }
 
 #tweetCount {
-  top: 110px;
-  left: 450px;
+  top: 160px;
+  left: 650px;
 }
 
 #reachCount {
-  top: 270px;
-  left: 450px;
+  top: 410px;
+  left: 650px;
 }
 
 #lastFive {
-  top: 120px;
-  left: 780px;
+  top: 215px;
+  left: 1125px;
 }
 
 #highTweet {
-  top: 30px;
-  left: 780px;
+  top: 60px;
+  left: 850px;
 }
 
 #lastUpdate {
-  top: 550px;
-  left: 780px;
+  top: 928px;
+  left: 1125px;
 }
 
 #heartBeat {
-  top: 130px;
-  left: 50px;
+  top: 230px;
+  left: 80px;
 }
 
 #chart {
-  top: 480px;
+  top: 770px;
   bottom: 0px;
   left: 20px;
 }
 
 #twitterFeed {
-  right: -10px;
   position: relative;
   float: right;
+  margin-right: 20px;
+}
+
+.fullScreen {
+  font-family: 'universe';
+  background-color: #d34034;
+  color: white;
+  padding: 10px 20px;
+  display: inline-block;
 }

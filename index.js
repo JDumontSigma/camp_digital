@@ -59,7 +59,7 @@ app.use(function(req,res,next){
 });
 
 //Start the twitter stream
-twitterStream.startTwitterStream('cats');
+twitterStream.startTwitterStream('campdigital');
 
 function tenMinuteUpdate(){
       setTimeout(function(){
@@ -82,7 +82,7 @@ function tenMinuteUpdate(){
             //reset appropriate info
             tenMinTweetCount = 0;
             tenMinuteUpdate();//rerrun 
-      }, 60000);//run every 1 minutes
+      }, 600000);//run every 1 minutes
 };
 
 let tweetInfo = {},

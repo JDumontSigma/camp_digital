@@ -2,6 +2,6 @@ const backgroundCanvas = document.getElementById('backgroundCanvas').getContext(
 
 function background(){
     backgroundCanvas.fillStyle = "White";//light grey
-    backgroundCanvas.fillRect(0,0,1366,700);
+    backgroundCanvas.fillRect(0,0,1920, 1080);
 }
 background();

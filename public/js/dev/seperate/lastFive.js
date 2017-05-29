@@ -3,7 +3,10 @@ const five = document.getElementById('lastFive').getContext('2d');
 let tweetNames = [''];
 
 export function latestFive(lastFive){
-  tweetNames = lastFive;
+  if(typeof lastFive !== 'undefined'){
+      tweetNames = lastFive;
+  }
+  
   //layout position variable
   let spacing = 100;
   //save canvas context
