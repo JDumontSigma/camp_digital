@@ -27,5 +27,17 @@ module.exports = {
                 console.log(err);
             });
         });
+    },
+    recallTwitter: function(id){
+        let string = (id).toString(),
+            params = {id : string};
+
+        twitter.get('statuses/filter', params, function(error, tweets, response) {
+            if (!error) {
+                console.log(tweets);
+            }else{
+                console.log(error);
+            }
+        });
     }
 }

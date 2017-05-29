@@ -5,6 +5,7 @@ const nunjucks = require('nunjucks'),
       bodyParser = require('body-parser'),
       path = require('path'),
       http = require('http'),
+      https = require('https'),
       Twitter = require('ntwitter'),
       socketIO = require('socket.io'),
       _ = require('lodash'),
@@ -17,7 +18,7 @@ const twitterAuth = require('./twitter.json'),
 //server setup
 const express = require('express'),
       app = express(),
-      server = http.createServer(app),
+      server = https.createServer(app),
       port = 3000,
       io = socketIO.listen(server);
 
@@ -60,6 +61,7 @@ app.use(function(req,res,next){
 
 //Start the twitter stream
 twitterStream.startTwitterStream('campdigital');
+//twitterStream.recallTwitter(867407219096158200);
 
 function tenMinuteUpdate(){
       setTimeout(function(){
@@ -167,6 +169,9 @@ function updateStats(id, newName, newScreenName, tweetText, followerCount){
             });
       }    
 }
+//example tweet puller
+
+//https://api.twitter.com/1.1/statuses/show/210462857140252672.json
 
 
 tenMinuteUpdate();//initial call to start the 10 minutes
