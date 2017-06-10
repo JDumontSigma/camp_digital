@@ -61,7 +61,6 @@ app.use(function(req,res,next){
 
 //Start the twitter stream
 twitterStream.startTwitterStream('campdigital');
-//twitterStream.recallTwitter(867407219096158200);
 
 function tenMinuteUpdate(){
       setTimeout(function(){
@@ -169,9 +168,31 @@ function updateStats(id, newName, newScreenName, tweetText, followerCount){
             });
       }    
 }
-//example tweet puller
 
-//https://api.twitter.com/1.1/statuses/show/210462857140252672.json
+var num = (867363578172584032).toString();
+var OAuth = require('OAuth');
+var oauth = new OAuth.OAuth(
+      'https://api.twitter.com/oauth/request_token',
+      'https://api.twitter.com/oauth/access_token',
+      'do6GM103yUI8WrRR18dtuGk2e',
+      '0OjBAgKRXzVSo2f9FBM9Jwqp9DFYQbbqKrwXoSvjrxEM9J3kje',
+      '1.0A',
+      null,
+      'HMAC-SHA1'
+    );
+    oauth.get(
+      
+      'https://api.twitter.com/1.1/statuses/show.json?id=' + num,
+      '2725060941-hkwZybCKT3GXfZt8Dgw8oWn9fjpHtTb4IOoA0LP', 
+      //you can get it at dev.twitter.com for your own apps
+      'QGLFZY2B6q1MqoKRG9wtM3kGfZcMjWLUgIz4mt0BZ9Abz', 
+      //you can get it at dev.twitter.com for your own apps
+      function (e, data, res){
+        if (e) console.error(e);  
+        console.log(data);      
+        //console.log(require('util').inspect(data));
+            
+      });    
 
 
 tenMinuteUpdate();//initial call to start the 10 minutes

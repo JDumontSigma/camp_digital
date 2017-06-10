@@ -28,11 +28,11 @@ module.exports = {
             });
         });
     },
-    recallTwitter: function(id){
-        let string = (id).toString(),
-            params = {id : string};
+    recallTwitter: function(){
+        let params = {q : 'campdigital',
+                      count: 2000};
 
-        twitter.get('statuses/filter', params, function(error, tweets, response) {
+        twitter.get('search/tweets', params, function(error, tweets, response) {
             if (!error) {
                 console.log(tweets);
             }else{
