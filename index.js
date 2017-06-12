@@ -216,6 +216,8 @@ function statistics(){
           retweets = 0,
           tweets = 0,
           followers = 0,
+          joinedString,
+          stringWordCount = {},
           names = new Array();
       let file = './public/storage/reformated.json';//location for internal storage
       jsonfile.readFile(file, function(err, obj){
@@ -232,13 +234,41 @@ function statistics(){
                          tweets++; //count up total tweets
                          let tempHold = obj[cont].tweets[tweetContent],
                              test = tempHold.substring(0, 2);//test first two characters
-
+                        joinedString += tempHold + ' ';
                         if(test === 'RT'){
                               retweets++;
                         } 
                   }
 
             }
+
+            //every tweet has been put into one string!
+            let everyWord = joinedString.replace(/\n/g, '');
+                everyWord = everyWord.split(' ');
+
+                  for(let x = 0; x < everyWord.length; x++){
+                        let tempWord = everyWord[x];
+                        tempWord = tempWord.toString();
+                        if(tempWord in stringWordCount){
+                              stringWordCount[tempWord].count = stringWordCount[tempWord].count + 1;
+                        }else{
+                              //when it is not in it
+                               
+                              stringWordCount[tempWord] = {'words' : tempWord, 'count' : 1 };
+                        }
+                  }
+
+                  let words = './public/storage/wordCount.json';
+                  stringWordCount = _.orderBy(stringWordCount, [Object.keys, 'count'], ['asc' ,'desc']);
+            jsonfile.writeFile(words, stringWordCount, {spaces : 2}, function(err){ //write to the file with spacing set
+                  if(err !== null){//if there is an error
+                        console.log(err);
+                  }else{
+                        console.log('Word Count Complete'); //else inform the data has been updated
+                  }
+                  
+            });
+
 
             console.log('Completed Stats');
             console.log('==================================================');
