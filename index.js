@@ -169,33 +169,88 @@ function updateStats(id, newName, newScreenName, tweetText, followerCount){
       }    
 }
 
-var num = (867363578172584032).toString();
-var OAuth = require('OAuth');
-var oauth = new OAuth.OAuth(
-      'https://api.twitter.com/oauth/request_token',
-      'https://api.twitter.com/oauth/access_token',
-      'do6GM103yUI8WrRR18dtuGk2e',
-      '0OjBAgKRXzVSo2f9FBM9Jwqp9DFYQbbqKrwXoSvjrxEM9J3kje',
-      '1.0A',
-      null,
-      'HMAC-SHA1'
-    );
-    oauth.get(
-      
-      'https://api.twitter.com/1.1/statuses/show.json?id=' + num,
-      '2725060941-hkwZybCKT3GXfZt8Dgw8oWn9fjpHtTb4IOoA0LP', 
-      //you can get it at dev.twitter.com for your own apps
-      'QGLFZY2B6q1MqoKRG9wtM3kGfZcMjWLUgIz4mt0BZ9Abz', 
-      //you can get it at dev.twitter.com for your own apps
-      function (e, data, res){
-        if (e) console.error(e);  
-        console.log(data);      
-        //console.log(require('util').inspect(data));
-            
-      });    
-
-
 tenMinuteUpdate();//initial call to start the 10 minutes
+
+
+function reformat(){
+      let userTweets = {};
+      let file = './public/storage/tweetData.json';//location for internal storage
+      jsonfile.readFile(file, function(err, obj){
+            for(let tweet in obj){
+                  if(obj[tweet].screenName in userTweets){
+                        //if it already exists
+                        let newTweets = userTweets[obj[tweet].screenName].tweetCount + 1,
+                            totalTweet = newTweets.toString();
+                        userTweets[obj[tweet].screenName].tweetCount = newTweets;
+                        userTweets[obj[tweet].screenName].tweets[totalTweet] = obj[tweet].tweetText;
+                  }else{
+                        userTweets[obj[tweet].screenName] = {
+                              'tweetName' : obj[tweet].tweetName,
+                              'tweets' : {
+                                    '1' : obj[tweet].tweetText
+                              },
+                              'followers' : obj[tweet].followers,
+                              'tweetCount' : 1
+                        }
+                  }
+            }
+
+      let reformat = './public/storage/reformated.json';
+
+       jsonfile.writeFile(reformat, userTweets, {spaces : 2}, function(err){ //write to the file with spacing set
+                  if(err !== null){//if there is an error
+                        console.log(err);
+                  }else{
+                        console.log('reformat complete'); //else inform the data has been updated
+                  }
+                  
+            });
+
+
+      });
+}
+
+function statistics(){
+      //var to hold stats
+      let highTweet = 0,
+          retweets = 0,
+          tweets = 0,
+          followers = 0,
+          names = new Array();
+      let file = './public/storage/reformated.json';//location for internal storage
+      jsonfile.readFile(file, function(err, obj){
+            for(let cont in obj){
+                 
+                  names.push(obj[cont].tweetName); // add the name of the person
+                  followers = followers + obj[cont].followers; //add followers on
+
+                  if(obj[cont].tweetCount > highTweet){
+                        highTweet = obj[cont].tweetCount; //reassign the high tweet if suitable
+                  }
+
+                  for(let tweetContent in obj[cont].tweets){//loop through each of the tweets
+                         tweets++; //count up total tweets
+                         let tempHold = obj[cont].tweets[tweetContent],
+                             test = tempHold.substring(0, 2);//test first two characters
+
+                        if(test === 'RT'){
+                              retweets++;
+                        } 
+                  }
+
+            }
+
+            console.log('Completed Stats');
+            console.log('==================================================');
+            console.log(`Total Number of Tweets: ${tweets}`);
+            console.log(`Combined Follower Total of Tweeters: ${followers}`);
+            console.log(`Total Number of Retweets: ${retweets}`);
+            console.log(`The highest tweets from one person: ${highTweet}`);
+      });
+}
+
+statistics();
+//reformat();
 
 //Prepare the server for listening
 server.listen(app.get('port'), function(){
